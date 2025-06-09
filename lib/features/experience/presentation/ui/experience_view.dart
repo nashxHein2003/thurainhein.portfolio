@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/features/experience/data/experience_data.dart';
 import 'package:portfolio/features/experience/presentation/ui/widget/experience_card.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -10,7 +11,6 @@ class ExperienceView extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = ResponsiveBreakpoints.of(context).isMobile;
 
-    // Card width: full on mobile, clamped on larger screens
     final cardWidth =
         isMobile ? screenWidth - 40 : (screenWidth / 3).clamp(250.0, 400.0);
 
@@ -30,10 +30,10 @@ class ExperienceView extends StatelessWidget {
               alignment: WrapAlignment.center,
               spacing: 20,
               runSpacing: 20,
-              children: List.generate(1, (index) {
+              children: List.generate(projects.length, (index) {
                 return SizedBox(
                   width: cardWidth,
-                  child: const ExperienceCard(),
+                  child: ExperienceCard(index: index),
                 );
               }),
             ),

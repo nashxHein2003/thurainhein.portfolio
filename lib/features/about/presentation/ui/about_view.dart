@@ -62,6 +62,7 @@ class AboutView extends StatelessWidget {
         const Gap(10),
         Text(
           "Self-motivated Flutter Developer with a year experience building user-friendly applications for both Android and iOS platforms. Strong collaborator with UI/UX team and backend developers to deliver seamless user experience. With a strong focus on code cleanliness and performance optimization, I keep seeking opportunities to learn new technologies and improve my development.",
+          textAlign: TextAlign.justify,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         const Gap(20),
@@ -116,35 +117,32 @@ class AboutView extends StatelessWidget {
         color: AppColor.kWhite,
         thickness: 2,
       ),
-      endChild: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            ...points.map(
-              (e) => Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('• ', style: TextStyle(fontSize: 14)),
-                    Expanded(
-                      child: Text(
-                        e,
-                        style: const TextStyle(fontSize: 14),
-                      ),
+      endChild: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          ...points.map(
+            (e) => Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('• ', style: TextStyle(fontSize: 14)),
+                  Expanded(
+                    child: Text(
+                      e,
+                      style: const TextStyle(fontSize: 14),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

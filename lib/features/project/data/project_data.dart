@@ -37,6 +37,8 @@ final List<ProjectModel> projectList = [
       'https://play.google.com/store/apps/detailsid=com.grummanexchange.gxmarkets&pcampaignid=web_share'
     ],
     image: 'assets/images/logo.png',
+    isVisibleRepo: false,
+    repoLink: '',
   ),
   ProjectModel(
     name: 'SSID Mobile',
@@ -50,6 +52,8 @@ final List<ProjectModel> projectList = [
     isPublished: false,
     host: [],
     image: 'assets/images/icons/flutter-icon.png',
+    isVisibleRepo: false,
+    repoLink: '',
   ),
   ProjectModel(
     name: 'Shaped Widget Package',
@@ -63,6 +67,8 @@ final List<ProjectModel> projectList = [
     isPublished: true,
     host: ['https://pub.dev/packages/shaped_widget'],
     image: 'assets/images/icons/dart-icon.png',
+    isVisibleRepo: true,
+    repoLink: 'https://github.com/nashxHein2003/shaped-widget',
   ),
   ProjectModel(
     name: 'Century Art',
@@ -73,6 +79,8 @@ final List<ProjectModel> projectList = [
     isPublished: true,
     host: ['https://cet-300-art-platform.vercel.app/'],
     image: 'assets/images/century-icon.png',
+    isVisibleRepo: true,
+    repoLink: 'https://github.com/nashxHein2003/CET-300_art-platform',
   ),
   ProjectModel(
     name: 'Baby Care',
@@ -83,5 +91,23 @@ final List<ProjectModel> projectList = [
     isPublished: false,
     host: [],
     image: 'assets/images/babycare-icon.png',
+    isVisibleRepo: true,
+    repoLink: 'https://github.com/nashxHein2003/baby-care-app',
+  ),
+  ProjectModel(
+    name: 'Tools For You',
+    description:
+        "Tools For You is a Flutter web application that will include calculation tools, etc. It focuses for mobile usage. It is currently under development. There are only two tools available now.",
+    tech: [
+      'assets/images/icons/flutter-icon.png',
+      'assets/images/icons/dart-icon.png',
+      'assets/images/icons/riverpod-icon.png'
+    ],
+    isMobile: false,
+    isPublished: true,
+    host: ['https://tools-for-you-2025.web.app/'],
+    image: 'assets/images/icons/flutter-icon.png',
+    isVisibleRepo: true,
+    repoLink: 'https://github.com/nashxHein2003/tools-for-you',
   )
 ];

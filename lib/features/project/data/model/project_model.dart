@@ -24,6 +24,8 @@ class ProjectModel {
   final bool isPublished;
   final List<String> host;
   final String image;
+  final bool isVisibleRepo;
+  final String repoLink;
 
   ProjectModel({
     required this.name,
@@ -33,5 +35,7 @@ class ProjectModel {
     required this.isPublished,
     required this.host,
     required this.image,
+    required this.isVisibleRepo,
+    required this.repoLink,
   });
 }

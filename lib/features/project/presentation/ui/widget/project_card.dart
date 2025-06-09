@@ -13,15 +13,16 @@ class ProjectCard extends StatelessWidget {
 
     double cardWidth;
     if (screenWidth < 600) {
-      cardWidth = screenWidth * 0.9; 
+      cardWidth = screenWidth * 0.9;
     } else if (screenWidth < 1024) {
-      cardWidth = screenWidth * 0.45; 
+      cardWidth = screenWidth * 0.45;
     } else {
-      cardWidth = 300; 
+      cardWidth = 300;
     }
 
     return SizedBox(
       width: cardWidth,
+      height: 420,
       child: Card(
         elevation: 6,
         color: AppColor.kCardBG,
@@ -32,6 +33,7 @@ class ProjectCard extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 12,
             children: [
               Row(
                 children: [
@@ -54,16 +56,31 @@ class ProjectCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
               Text(
                 project.description,
-                maxLines: 5,
-                overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-              const SizedBox(height: 12),
+              const Spacer(),
+              project.isVisibleRepo
+                  ? InkWell(
+                      onTap: () async {
+                        final Uri uri = Uri.parse(project.repoLink);
+                        if (await canLaunchUrl(uri)) {
+                          await launchUrl(uri,
+                              mode: LaunchMode.externalApplication);
+                        } else {
+                          throw 'Could not launch $uri';
+                        }
+                      },
+                      child: Text(
+                        'Repo',
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              color: AppColor.kPrimaryColor,
+                            ),
+                      ),
+                    )
+                  : SizedBox(),
               Text('Tech used:'),
-              const SizedBox(height: 6),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
@@ -80,7 +97,6 @@ class ProjectCard extends StatelessWidget {
                     )
                     .toList(),
               ),
-              const SizedBox(height: 12),
               project.isPublished
                   ? Wrap(
                       spacing: 8,

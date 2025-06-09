@@ -74,6 +74,7 @@ flutter:
     - assets/images/icons/dart-icon.png
     - assets/images/icons/react-icon.jpg
     - assets/images/icons/java-icon.png
+    - assets/images/icons/riverpod-icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

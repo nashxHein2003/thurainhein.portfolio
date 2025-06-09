@@ -8,34 +8,32 @@ class ProjectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
-    final horizontalPadding = screenWidth < 600
-        ? 16.0
-        : screenWidth < 1024
-            ? 40.0
-            : 100.0;
+    final horizontalPadding = screenWidth < 600 ? 16.0 : 40.0;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          'Projects',
-          style: Theme.of(context).textTheme.labelMedium,
-        ),
-        const SizedBox(height: 20),
-        Container(
-          //width: screenWidth,
-          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-          child: Center(
-            child: Wrap(
-              spacing: 16,
-              runSpacing: 16,
-              children: projectList
-                  .map((project) => ProjectCard(project: project))
-                  .toList(),
+    return SizedBox(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Projects',
+            style: Theme.of(context).textTheme.labelMedium,
+          ),
+          const SizedBox(height: 20),
+          Container(
+            width: screenWidth,
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: Center(
+              child: Wrap(
+                spacing: 16,
+                runSpacing: 16,
+                children: projectList
+                    .map((project) => ProjectCard(project: project))
+                    .toList(),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
